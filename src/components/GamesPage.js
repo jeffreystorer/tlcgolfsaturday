@@ -9,7 +9,11 @@ import fetchPlayersAndGames from "../functions/fetchPlayersAndGames"
 
 export default function GamesPage() {
   if (!get("teesSelected")) {
-    let defaultValue = ["C", "C/M", "M"]
+    let defaultValue = [
+      { label: "Club", value: "C" },
+      { label: "Club/Medal", value: "C/M" },
+      { label: "Medal", value: "M" },
+    ]
     set("teesSelected", defaultValue)
   }
   let ghinNumber, lastName
