@@ -1,6 +1,6 @@
 {
-  "short_name": "TLC Golf",
-  "name": "TLC Golf",
+  "short_name": "TLC Golf Saturday",
+  "name": "TLC Golf Saturday",
   "icons": [
     {
       "src": "favicon.ico",
@@ -22,7 +22,8 @@
       "type": "image/png",
       "sizes": "512x512",
       "purpose": "any maskable"
-    }],
+    }
+  ],
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",
