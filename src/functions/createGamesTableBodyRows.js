@@ -31,11 +31,11 @@ export default function createGamesTableBodyRows(
   function compute(aPlayer, index) {
     strHcpIndex = aPlayer[3]
     hcpIndex = parseFloat(strHcpIndex)
-    let firstName = aPlayer[2]
+    //let firstName = aPlayer[2]
     let lastName = aPlayer[1]
     gender = aPlayer[4]
-    let prefix = ""
-    let player = prefix + firstName + " " + lastName + " (" + strHcpIndex + ")"
+    //let prefix = ""
+    let player = lastName + " (" + strHcpIndex + ")"
     let rowReturn = [player]
     let i
     for (i = 0; i < teesSelectedArray.length; i++) {
