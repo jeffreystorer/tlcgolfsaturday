@@ -7,7 +7,7 @@ function Header() {
       <div className="header">TLC Golf</div>
       <br></br>
       <div className="center">
-        <h3>Saturday Group</h3>
+        <h3>Saturday Madness</h3>
         <h4>Today's Handicaps</h4>
       </div>
     </>
