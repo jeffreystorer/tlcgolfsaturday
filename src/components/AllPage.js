@@ -1,13 +1,13 @@
 import React from "react"
 import "../styles/App.css"
-import GamesTable from "./GamesTable"
+import AllTable from "./AllTable"
 import { get, set } from "../functions/localStorage"
 import fetchCourseData from "../functions/fetchCourseData"
 import setSheetURL from "../functions/setSheetURL"
 import setIsLoggedIn from "../functions/setIsLoggedIn"
 import fetchPlayersAndGames from "../functions/fetchPlayersAndGames"
 
-export default function GamesPage() {
+export default function AllPage() {
   if (!get("teesSelected")) {
     let defaultValue = [
       { label: "Club", value: "C" },
@@ -31,7 +31,7 @@ export default function GamesPage() {
 
   return (
     <>
-      <GamesTable ratings={ratings} slopes={slopes} pars={pars} />
+      <AllTable ratings={ratings} slopes={slopes} pars={pars} />
     </>
   )
 }

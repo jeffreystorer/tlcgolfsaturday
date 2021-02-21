@@ -9,6 +9,7 @@ import {
 } from "react-router-dom"
 import "../styles/App.css"
 import Header from "./Header"
+import AllPage from "./AllPage"
 import GamesPage from "./GamesPage"
 import SelectTeesPage from "./SelectTeesPage"
 
@@ -25,7 +26,15 @@ export default function App() {
             className="navitem"
             activeStyle={{ color: "#3378ac", fontWeight: "bold" }}
           >
-            Handicaps
+            All Courses
+          </NavLink>
+          <NavLink
+            exact
+            to="/onecourse"
+            className="navitem"
+            activeStyle={{ color: "#3378ac", fontWeight: "bold" }}
+          >
+            One Course
           </NavLink>
 
           <NavLink
@@ -38,11 +47,15 @@ export default function App() {
           </NavLink>
         </nav>
         <Switch>
+          <Route path="/onecourse">
+            <OneCourse />
+          </Route>
+
           <Route path="/selecttees">
             <SelectTees />
           </Route>
           <Route path="/">
-            <Handicaps />
+            <AllCourses />
           </Route>
         </Switch>
       </Router>
@@ -50,7 +63,16 @@ export default function App() {
   )
 }
 
-function Handicaps() {
+function AllCourses() {
+  return (
+    <>
+      <br></br>
+      <AllPage />
+    </>
+  )
+}
+
+function OneCourse() {
   return (
     <>
       <br></br>
