@@ -10,6 +10,7 @@ export default function createGamesTableBodyRows(
   pars
 ) {
   const players = get("players")
+  console.log("😊😊 players--games", players)
 
   //declare some variables
   var rows = []

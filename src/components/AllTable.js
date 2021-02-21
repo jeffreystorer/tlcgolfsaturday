@@ -6,7 +6,7 @@ import { get } from "../functions/localStorage"
 import { useRecoilState } from "recoil"
 import * as state from "../state"
 
-export default function AllTable() {
+export default function AllTable({ ratings, slopes, pars }) {
   const dataMode = get("dataMode")
   //eslint-disable-next-line
   const [teesSelected, setTeesSelected] = useRecoilState(
@@ -23,7 +23,12 @@ export default function AllTable() {
 
   return (
     <>
-      <AllTableAll game={"Saturday"} />
+      <AllTableAll
+        ratings={ratings}
+        slopes={slopes}
+        pars={pars}
+        game={"Saturday"}
+      />
     </>
   )
 }

@@ -1,19 +1,12 @@
 import React from "react"
-import createGamesTableBodyRows from "../functions/createGamesTableBodyRows.js"
+import createAllTableBodyRows from "../functions/createAllTableBodyRows.js"
 import { useRecoilValue } from "recoil"
 import * as state from "../state"
 
-const GamesTableBody = ({ ratings, slopes, pars }) => {
-  const course = useRecoilValue(state.courseState)
+const AllTableBody = ({ ratings, slopes, pars }) => {
   const teesSelected = useRecoilValue(state.teesSelectedState)
 
-  let rows = createGamesTableBodyRows(
-    course,
-    teesSelected,
-    ratings,
-    slopes,
-    pars
-  )
+  let rows = createAllTableBodyRows(teesSelected, ratings, slopes, pars)
   let rowsTD = []
   let colCount = rows[0].length
 
@@ -44,4 +37,4 @@ const GamesTableBody = ({ ratings, slopes, pars }) => {
   return <>{generateRows()}</>
 }
 
-export default GamesTableBody
+export default AllTableBody

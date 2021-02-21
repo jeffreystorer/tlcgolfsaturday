@@ -44,7 +44,7 @@ export default function AllTableAll({ ratings, slopes, pars, game }) {
             <AllTableHeader />
           </thead>
           <tbody>
-            <AllTableBody ratings={ratings} slopes={slopes} pars={pars} />
+            <AllTableBody ratings={ratings} slopes={slopes} pars={pars} game={game}/>
           </tbody>
         </div>
       </table>

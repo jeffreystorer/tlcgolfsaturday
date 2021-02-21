@@ -1,9 +1,15 @@
-import { tees, courses } from "../data"
+import { tees } from "../data"
 import { get } from "./localStorage"
 import setRatingSlopePar from "./setRatingSlopePar"
 
-export default function createAllTableBodyRows(teesSelected) {
+export default function createAllTableBodyRows(
+  teesSelected,
+  ratings,
+  slopes,
+  pars
+) {
   const players = get("players")
+  console.log("😊😊 players--all", players)
 
   //declare some variables
   var rows = []
@@ -30,19 +36,21 @@ export default function createAllTableBodyRows(teesSelected) {
     let player = lastName + " (" + strHcpIndex + ")"
     let rowReturn = [player]
     let i
-    for (i = 0; i < teesSelectedArray.length; i++) {
-      //here is where we compute the course handicap of the golfer for each of the selected tees
-      let courseNumber = courses.indexOf(course)
-      let teeNumber = tees.indexOf(teesSelectedArray[i])
-      const [rating, slope, par] = setRatingSlopePar(
-        ratings,
-        slopes,
-        pars,
-        courseNumber,
-        teeNumber,
-        gender
-      )
-      rowReturn.push(doMath(rating, slope, par))
+    let courseNumber
+    for (courseNumber = 0; courseNumber < 6; courseNumber++) {
+      for (i = 0; i < teesSelectedArray.length; i++) {
+        //here is where we compute the course handicap of the golfer for each of the selected tees
+        let teeNumber = tees.indexOf(teesSelectedArray[i])
+        const [rating, slope, par] = setRatingSlopePar(
+          ratings,
+          slopes,
+          pars,
+          courseNumber,
+          teeNumber,
+          gender
+        )
+        rowReturn.push(doMath(rating, slope, par))
+      }
     }
     return rowReturn
   }
