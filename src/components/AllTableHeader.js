@@ -7,23 +7,14 @@ export default function AllTableHeader() {
   let teesSelectedArray = teesSelected.map((a) => a.value)
   let teeCount = teesSelectedArray.length
   let courses = ["DC", "MG", "MW", "OR", "PA", "TP"]
-  console.log("😊😊 teesSelected", teesSelected)
-  console.log("😊😊 teesSelectedArray", teesSelectedArray)
-  console.log("😊😊 teeCount", teeCount)
 
   return (
     <>
-      <tr className="individual-header-row">
-        <th scope="col" className="individual-left-header-cell">
-          Player
-        </th>
+      <tr className="">
+        <th scope="col" className="individual-left-header-cell"></th>
         {courses.map((course) => {
           return (
-            <th
-              className="individual-other-header-cell"
-              colspan={teeCount}
-              scope="colgroup"
-            >
+            <th className="" colspan={teeCount} scope="colgroup">
               {course}
             </th>
           )

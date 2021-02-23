@@ -1,9 +1,7 @@
 import React from "react"
 import AllTableHeader from "./AllTableHeader"
 import AllTableBody from "./AllTableBody"
-
 import ButtonDownloadScreenShot from "./ButtonDownloadScreenshot"
-import { get } from "../functions/localStorage"
 
 export default function AllTableAll({ ratings, slopes, pars, game }) {
   let today = new Date()
@@ -38,13 +36,15 @@ export default function AllTableAll({ ratings, slopes, pars, game }) {
       <table id="games-table" className="background-white">
         <div id="all-table-div" className="background-white">
           <thead>
-            <tr className="center background-white">
-              <th colSpan={get("teesSelected").length + 1}>{date}</th>
-            </tr>
             <AllTableHeader />
           </thead>
           <tbody>
-            <AllTableBody ratings={ratings} slopes={slopes} pars={pars} game={game}/>
+            <AllTableBody
+              ratings={ratings}
+              slopes={slopes}
+              pars={pars}
+              game={game}
+            />
           </tbody>
         </div>
       </table>

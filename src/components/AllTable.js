@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React, { useState, useEffect } from "react"
 import "../styles/App.css"
 import AllTableAll from "./AllTableAll"
 import fetchGamesGHIN from "../functions/fetchGamesGHIN"
@@ -7,7 +7,7 @@ import { useRecoilState } from "recoil"
 import * as state from "../state"
 
 export default function AllTable({ ratings, slopes, pars }) {
-  const dataMode = get("dataMode")
+  const [loading, setLoading] = useState(true)
   //eslint-disable-next-line
   const [teesSelected, setTeesSelected] = useRecoilState(
     state.teesSelectedState
@@ -19,7 +19,11 @@ export default function AllTable({ ratings, slopes, pars }) {
     setTeesSelected(get("teesSelected"))
   }, [setTeesSelected])
 
-  fetchGamesGHIN(dataMode)
+  useEffect(() => {
+    fetchGamesGHIN(setLoading)
+  }, [])
+
+  if (loading) return <p className="center-bold">Loading</p>
 
   return (
     <>

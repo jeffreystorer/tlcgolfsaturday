@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React, { useState, useEffect } from "react"
 import "../styles/App.css"
 import GamesTableAll from "./GamesTableAll"
 import GamesTableDropDowns from "./GamesTableDropDowns"
@@ -9,7 +9,7 @@ import { useRecoilValue, useRecoilState } from "recoil"
 import * as state from "../state"
 
 export default function GamesTable({ ratings, slopes, pars }) {
-  const dataMode = get("dataMode")
+  const [loading, setLoading] = useState(true)
   //eslint-disable-next-line
   const [teesSelected, setTeesSelected] = useRecoilState(
     state.teesSelectedState
@@ -24,8 +24,12 @@ export default function GamesTable({ ratings, slopes, pars }) {
     setTeesSelected(get("teesSelected"))
   }, [setTeesSelected])
 
-  fetchGamesGHIN(dataMode)
+  useEffect(() => {
+    fetchGamesGHIN(setLoading)
+  }, [])
+
   let displayNumber = getGamesAndSelectPlayersTableDisplayNumber(course)
+  if (loading) return <p className="center-bold">Loading</p>
 
   switch (displayNumber) {
     case 1:

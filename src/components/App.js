@@ -11,7 +11,7 @@ import "../styles/App.css"
 import Header from "./Header"
 import AllPage from "./AllPage"
 import GamesPage from "./GamesPage"
-import SelectTeesPage from "./SelectTeesPage"
+//import SelectTeesPage from "./SelectTeesPage"
 
 export default function App() {
   return (
@@ -22,7 +22,7 @@ export default function App() {
         <nav>
           <NavLink
             exact
-            to="/"
+            to="/allcourses"
             className="navitem"
             activeStyle={{ color: "#3378ac", fontWeight: "bold" }}
           >
@@ -30,32 +30,31 @@ export default function App() {
           </NavLink>
           <NavLink
             exact
-            to="/onecourse"
+            to="/"
             className="navitem"
             activeStyle={{ color: "#3378ac", fontWeight: "bold" }}
           >
             One Course
           </NavLink>
 
-          <NavLink
+          {/*           <NavLink
             exact
             to="/selecttees"
             className="navitem-last"
             activeStyle={{ color: "#3378ac", fontWeight: "bold" }}
           >
             Select Tees
-          </NavLink>
+          </NavLink> */}
         </nav>
         <Switch>
-          <Route path="/onecourse">
-            <OneCourse />
-          </Route>
-
-          <Route path="/selecttees">
+          {/*          <Route path="/selecttees">
             <SelectTees />
+          </Route> */}
+          <Route path="/allcourses">
+            <AllCourses />
           </Route>
           <Route path="/">
-            <AllCourses />
+            <OneCourse />
           </Route>
         </Switch>
       </Router>
@@ -81,11 +80,11 @@ function OneCourse() {
   )
 }
 
-function SelectTees() {
+/* function SelectTees() {
   return (
     <>
       <br></br>
       <SelectTeesPage />
     </>
   )
-}
+} */

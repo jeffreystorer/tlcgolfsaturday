@@ -11,22 +11,29 @@ const AllTableBody = ({ ratings, slopes, pars }) => {
   let colCount = rows[0].length
 
   function generateRows() {
+    let oddRow = false
     for (var i = 0; i < rows.length; i++) {
+      oddRow = !oddRow
       rowsTD[i] = (
-        <tr key={i}>
-          <td className="game-left-row-cell">{rows[i][0]}</td>
-          {generateCols(i)}
+        <tr key={i} className={`${oddRow ? "" : "tr--shaded"}`}>
+          <td className="all-left-row-cell">{rows[i][0]}</td>
+          {generateCols(i, oddRow)}
         </tr>
       )
     }
     return rowsTD
   }
 
-  function generateCols(i) {
+  function generateCols(i, oddRow) {
     let tds = []
+    let oddCol = false
     for (var j = 1; j < colCount; j++) {
+      oddCol = !oddCol
       tds[j] = (
-        <td className="game-other-row-cell" key={j}>
+        <td
+          className={`all-other-row-cell ${oddRow & oddCol ? "" : ""}`}
+          key={j}
+        >
           {rows[i][j]}
         </td>
       )

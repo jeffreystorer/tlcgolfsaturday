@@ -4,7 +4,7 @@ import GamesTableHeader from "./GamesTableHeader"
 import GamesTableBody from "./GamesTableBody"
 
 import ButtonDownloadScreenShot from "./ButtonDownloadScreenshot"
-import { get } from "../functions/localStorage"
+//import { get } from "../functions/localStorage"
 
 export default function GamesTableAll({ ratings, slopes, pars, game, course }) {
   let today = new Date()
@@ -65,11 +65,6 @@ export default function GamesTableAll({ ratings, slopes, pars, game, course }) {
       <table id="games-table" className="background-white">
         <div id="games-table-div" className="background-white">
           <thead>
-            <tr className="center background-white">
-              <th colSpan={get("teesSelected").length + 1}>
-                {date} at {courseName}
-              </th>
-            </tr>
             <GamesTableHeader />
           </thead>
           <tbody>
