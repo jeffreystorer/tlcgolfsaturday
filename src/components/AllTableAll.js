@@ -35,6 +35,8 @@ export default function AllTableAll({ ratings, slopes, pars, game }) {
     <>
       <table id="games-table" className="background-white">
         <div id="all-table-div" className="background-white">
+          <caption>{date}</caption>
+          <caption> </caption>
           <thead>
             <AllTableHeader />
           </thead>

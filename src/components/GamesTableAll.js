@@ -57,13 +57,17 @@ export default function GamesTableAll({ ratings, slopes, pars, game, course }) {
     default:
       break
   }
+
   return (
     <>
       <GamesTableDropDowns />
       <br />
       <br />
+
       <table id="games-table" className="background-white">
         <div id="games-table-div" className="background-white">
+          <caption>{courseName}</caption>
+          <caption>({date})</caption>
           <thead>
             <GamesTableHeader />
           </thead>
