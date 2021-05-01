@@ -10,7 +10,8 @@ export default function createGamesTableBodyRows(
   pars
 ) {
   const players = get("players")
-  console.log("😊😊 players--games", players)
+  const games = get("games")
+  let gameIndex = games.indexOf("Saturday") + 6
 
   //declare some variables
   var rows = []
@@ -23,7 +24,11 @@ export default function createGamesTableBodyRows(
 
   //filter players, then add them
   function addRow(item, index) {
-    if (item[9] === "Yes" || item[9] === "YES" || item[9] === "yes") {
+    if (
+      item[gameIndex] === "Yes" ||
+      item[gameIndex] === "YES" ||
+      item[gameIndex] === "yes"
+    ) {
       doAdd(item, index)
     }
   }

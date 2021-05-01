@@ -9,7 +9,8 @@ export default function createAllTableBodyRows(
   pars
 ) {
   const players = get("players")
-  console.log("😊😊 players--all", players)
+  const games = get("games")
+  let gameIndex = games.indexOf("Saturday") + 6
 
   //declare some variables
   var rows = []
@@ -22,7 +23,11 @@ export default function createAllTableBodyRows(
 
   //filter players, then add them
   function addRow(item, index) {
-    if (item[9] === "Yes" || item[9] === "YES" || item[9] === "yes") {
+    if (
+      item[gameIndex] === "Yes" ||
+      item[gameIndex] === "YES" ||
+      item[gameIndex] === "yes"
+    ) {
       doAdd(item, index)
     }
   }

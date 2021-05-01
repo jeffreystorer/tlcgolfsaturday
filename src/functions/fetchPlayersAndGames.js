@@ -39,7 +39,7 @@ function createPlayersAndGames(values) {
     setGamesAndPlayers(playerTable)
   }
   function setGamesAndPlayers(playerTable) {
-    playerTable[0].splice(0, 2)
+    playerTable[0].splice(0, 3)
     playerTable[0].unshift("All")
     set("games", playerTable[0])
     playerTable.splice(0, 1)
